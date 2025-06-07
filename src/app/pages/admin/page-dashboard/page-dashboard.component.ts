@@ -15,6 +15,18 @@ import { environment } from '../../../enviroment';
 })
 export class PageDashboardComponent {
   private listTransactions : Transaction[] = []
+  private listTransactionsTranslations: {
+    ID: string;
+    Vendedor: string;
+    "Usuario Conectado": string;
+    Monto: number;
+    Comisión: number;
+    "Comision de Aplicacion": number;
+    Neto: number;
+    Moneda: string;
+    Fecha: string;
+    Cuenta: string;
+  }[] = []
   private socket: Socket;
 
   constructor(private dashboardService : DashboardService) {
@@ -32,6 +44,22 @@ export class PageDashboardComponent {
     this.dashboardService.getTransactions().subscribe(
       (response) => {
         this.listTransactions = response;
+        this.listTransactionsTranslations = [];
+        this.listTransactions.forEach(transaction => {
+          const item = {
+            "ID": transaction.id,
+            "Vendedor": transaction.customer,
+            "Usuario Conectado": transaction.connected_user,
+            "Monto": transaction.amount,
+            "Comisión": transaction.fee,
+            "Comision de Aplicacion": transaction.application_fee_amount,
+            "Neto": transaction.net,
+            "Moneda": transaction.currency,
+            "Fecha": transaction.created,
+            "Cuenta": transaction.id_account
+          };
+          this.listTransactionsTranslations.push(item);
+        });
       },
       (error) => {
         console.error(error);
@@ -41,6 +69,10 @@ export class PageDashboardComponent {
 
   get ListTransactions () {
     return this.listTransactions
+  }
+
+  get ListTransactionsTranslations () {
+    return this.listTransactionsTranslations
   }
 
 }

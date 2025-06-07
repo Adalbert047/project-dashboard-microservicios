@@ -1,30 +1,30 @@
 <div class="flex flex-col items-center gap-y-2 w-full h-screen bg-sky-300">
   <div class="w-full max-w-md text-center mt-4">
-    <p class="text-3xl font-semibold" style="color: black;">Gestion de Operaciones</p>
+    <p class="text-5xl font-bold" style="color: white;">Dashboard</p>
   </div>
-  <div class="card mt-2" style="width: 90%;">
+  <div class="card mt-2" style="width: 100%;">
     <p-table
       [value]="ListTransactions"
       [paginator]="true"
       showGridlines
       stripedRows
       [rows]="5"
-      [tableStyle]="{ 'min-width': '15rem' }"
+      [tableStyle]="{ 'min-width': '15rem', 'background-color': 'white' }"
       [rowsPerPageOptions]="[5, 10]"
     >
       <ng-template pTemplate="header">
         <tr>
           <th>Id</th>
-          <th>Customer</th>
-          <th>Connected_user</th>
-          <th>Amount</th>
-          <th>Fee</th>
-          <th>Application_fee_amount</th>
-          <th>Application_fee_percentage</th>
-          <th>Net</th>
-          <th>Currency</th>
-          <th>Created</th>
-          <th>Id_account</th>
+          <th>Vendedor</th>
+          <th>Usuario Conectado</th>
+          <th>Monto</th>
+          <th>Comisión</th>
+          <th>Comisión de Aplicación</th>
+          <th>Porcentaje de Comisión de Aplicación</th>
+          <th>Neto</th>
+          <th>Moneda</th>
+          <th>Creado</th>
+          <th>Cuenta</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-transaction>

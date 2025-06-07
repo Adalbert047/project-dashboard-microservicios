@@ -1,3 +1,7 @@
 :host ::ng-deep .p-table {
     background-color: #ffffff !important;
   }
+:host ::ng-deep .p-datatable {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+}
