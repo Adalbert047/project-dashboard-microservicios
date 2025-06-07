@@ -1,0 +1,14 @@
+:host ::ng-deep .p-card {
+    background-color: #ffffff !important;
+  }
+
+:host ::ng-deep .p-inputtext {
+    background-color: #ffffff !important;
+}
+:host ::ng-deep .p-password-input  {
+  color: black !important;
+}
+
+:host ::ng-deep .p-password-input:enabled:focus {
+  border-color: black !important;
+}

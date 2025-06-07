@@ -1,0 +1,47 @@
+<div class="flex flex-col items-center gap-y-2 w-full h-screen bg-sky-300">
+  <div class="w-full max-w-md text-center mt-4">
+    <p class="text-3xl font-semibold" style="color: black;">Gestion de Operaciones</p>
+  </div>
+  <div class="card mt-2" style="width: 90%;">
+    <p-table
+      [value]="ListTransactions"
+      [paginator]="true"
+      showGridlines
+      stripedRows
+      [rows]="5"
+      [tableStyle]="{ 'min-width': '15rem' }"
+      [rowsPerPageOptions]="[5, 10]"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Id</th>
+          <th>Customer</th>
+          <th>Connected_user</th>
+          <th>Amount</th>
+          <th>Fee</th>
+          <th>Application_fee_amount</th>
+          <th>Application_fee_percentage</th>
+          <th>Net</th>
+          <th>Currency</th>
+          <th>Created</th>
+          <th>Id_account</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-transaction>
+        <tr>
+          <td>{{ transaction.id }}</td>
+          <td>{{ transaction.customer }}</td>
+          <td>{{ transaction.connected_user }}</td>
+          <td>{{ transaction.amount }}</td>
+          <td>{{ transaction.fee }}</td>
+          <td>{{ transaction.application_fee_amount }}</td>
+          <td>{{ transaction.application_fee_percentage }}</td>
+          <td>{{ transaction.net }}</td>
+          <td>{{ transaction.currency }}</td>
+          <td>{{ transaction.created }}</td>
+          <td>{{ transaction.id_account }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
